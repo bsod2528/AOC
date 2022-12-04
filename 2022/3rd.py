@@ -1,11 +1,8 @@
 from string import ascii_uppercase, ascii_lowercase
 from typing import List, Set
 
-escape: str = "\x1b"
-red: str = f"{escape}[0;1;31m"
-blue: str = f"{escape}[0;1;34m"
-white: str = f"{escape}[0;1;37m"
-the_arrow: str = f"{escape}[0;1;37;40m > "
+import file_formats
+from file_formats import blue, red, white, the_arrow, escape
 
 letters: str = ascii_uppercase + ascii_lowercase
 

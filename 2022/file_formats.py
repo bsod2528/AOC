@@ -1,0 +1,5 @@
+escape: str = "\x1b"
+red: str = f"{escape}[0;1;31m"
+blue: str = f"{escape}[0;1;34m"
+white: str = f"{escape}[0;1;37m"
+the_arrow: str = f"{escape}[0;1;37;40m > "

@@ -1,11 +1,7 @@
 from os import system
 from typing import Dict, List, Any
 
-escape: str = "\x1b"
-red: str = f"{escape}[0;1;31m"
-blue: str = f"{escape}[0;1;34m"
-white: str = f"{escape}[0;1;37m"
-the_arrow: str = f"{escape}[0;1;37;40m > "
+
 
 # All hail Zeus432 for this part :worship:
 with open("2022\\elf_calorie.txt") as file:

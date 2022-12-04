@@ -1,10 +1,7 @@
 from typing import Dict, List
 
-escape: str = "\x1b"
-red: str = f"{escape}[0;1;31m"
-blue: str = f"{escape}[0;1;34m"
-white: str = f"{escape}[0;1;37m"
-the_arrow: str = f"{escape}[0;1;37;40m > "
+import file_formats
+from file_formats import blue, red, white, the_arrow, escape
 
 with open("2022\\rps.txt") as file:
     strategy_list: List[str] = [x for x in file.read().strip().split("\n")]
