@@ -1,10 +1,13 @@
 from os import system
 from typing import Dict, List, Any
 
+import file_formats
+from file_formats import the_arrow, white, escape, red, blue
 
 
 # All hail Zeus432 for this part :worship:
 with open("2022\\elf_calorie.txt") as file:
+    print(type(file))
     elf_dict: Dict[int,
                    List[Any]] = {i + 1: [int(f) for f in x.split("\n")] for i,
                                  x in enumerate(file.read().strip().split("\n\n"))}
