@@ -1,16 +1,15 @@
 from os import system
-from typing import Dict, List, Any
+from typing import Any, Dict, List
 
 import file_formats
-from file_formats import the_arrow, white, escape, red, blue
-
+from file_formats import blue, escape, red, the_arrow, white
 
 # All hail Zeus432 for this part :worship:
 with open("2022\\elf_calorie.txt") as file:
-    print(type(file))
-    elf_dict: Dict[int,
-                   List[Any]] = {i + 1: [int(f) for f in x.split("\n")] for i,
-                                 x in enumerate(file.read().strip().split("\n\n"))}
+    elf_dict: Dict[int, List[Any]] = {
+        i + 1: [int(f) for f in x.split("\n")]
+        for i, x in enumerate(file.read().strip().split("\n\n"))
+    }
 
 calorie_list: List[int] = []
 
@@ -38,13 +37,17 @@ for key, value in elf_dict.items():
         suffix = "nd"
     if sum(value) == highest_calorie:
         print(
-            f"{the_arrow}{white} Therefore, the Elves should go and ask {blue}{key}{suffix} Elf{escape}[0m{white} as they have the highest calorie of: {red}{highest_calorie} {escape}[0m")
+            f"{the_arrow}{white} Therefore, the Elves should go and ask {blue}{key}{suffix} Elf{escape}[0m{white} as they have the highest calorie of: {red}{highest_calorie} {escape}[0m"
+        )
     if sum(value) == second_highest:
         print(
-            f"{the_arrow}{white} Therefore, the Elves should go and ask {blue}{key}{suffix} Elf{escape}[0m{white} as they have the highest calorie of: {red}{second_highest} {escape}[0m")
+            f"{the_arrow}{white} Therefore, the Elves should go and ask {blue}{key}{suffix} Elf{escape}[0m{white} as they have the highest calorie of: {red}{second_highest} {escape}[0m"
+        )
     if sum(value) == third_highest:
         print(
-            f"{the_arrow}{white} Therefore, the Elves should go and ask {blue}{key}{suffix} Elf{escape}[0m{white} as they have the highest calorie of: {red}{third_highest} {escape}[0m")
+            f"{the_arrow}{white} Therefore, the Elves should go and ask {blue}{key}{suffix} Elf{escape}[0m{white} as they have the highest calorie of: {red}{third_highest} {escape}[0m"
+        )
 
-print(f"{the_arrow}{white} And the total calories by those three is {red}{highest_calorie + second_highest + third_highest}{escape}[0m")
-
+print(
+    f"{the_arrow}{white} And the total calories by those three is {red}{highest_calorie + second_highest + third_highest}{escape}[0m"
+)
