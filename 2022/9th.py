@@ -1,7 +1,7 @@
-from typing import Any, Set, Dict, Tuple, List, Literal, TextIO
+from typing import Any, Dict, List, Literal, Set, TextIO, Tuple
 
 import file_formats
-from file_formats import the_arrow, white, escape, red, blue
+from file_formats import blue, escape, red, the_arrow, white
 
 
 def assertions() -> None:
@@ -56,7 +56,8 @@ def get_instructions(path: TextIO) -> List:
         "U": (0, -1),
         "D": (0, 1),
         "L": (-1, 0),
-        "R": (1, 0),}
+        "R": (1, 0),
+    }
 
     with open(path) as file:
         for line in file.read().strip().split("\n"):
@@ -70,7 +71,6 @@ def return_answer(instructions: List, rope_length: int) -> int:
     rope: List[Tuple[Literal, Literal]] = [(0, 0)]
 
     for delta, quantity in instructions:
-
         for x in range(quantity):
             rope[-1] = move(rope[-1], delta)
 
@@ -93,6 +93,8 @@ assertions()
 
 
 print(
-    f"{the_arrow}{white} Therefore, the number of positions in which the tail of the rope visited once is{blue} hypothetically{white}: {red}{return_answer(plank_length, 2)}{escape}[0m")
+    f"{the_arrow}{white} Therefore, the number of positions in which the tail of the rope visited once is{blue} hypothetically{white}: {red}{return_answer(plank_length, 2)}{escape}[0m"
+)
 print(
-    f"{the_arrow}{white} Therefore, the number of positions in which the tail of the rope visited once {blue}with a larger rope with more than 10 knots{white} is: {red}{return_answer(plank_length, 10)}{escape}[0m")
+    f"{the_arrow}{white} Therefore, the number of positions in which the tail of the rope visited once {blue}with a larger rope with more than 10 knots{white} is: {red}{return_answer(plank_length, 10)}{escape}[0m"
+)

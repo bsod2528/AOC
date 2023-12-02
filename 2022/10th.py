@@ -1,7 +1,7 @@
 from typing import List, Literal
 
 import file_formats
-from file_formats import white, the_arrow, escape, blue, red
+from file_formats import blue, escape, red, the_arrow, white
 
 
 class CathodRayTube:
@@ -9,15 +9,15 @@ class CathodRayTube:
         self.height: int = height
         self.length: int = length
         self.display: List[str] = [
-            f"{red}.{escape}[0m" for _ in range(
-                self.height * self.length)]
+            f"{red}.{escape}[0m" for _ in range(self.height * self.length)
+        ]
         self.x: Literal = 1
         self.cycles: Literal = 0
         self.signal_strength: Literal = 0
 
     def __str__(self):
         final: Literal = ""
-        start: int = - (self.length)
+        start: int = -(self.length)
         end: Literal = 0
         for row in range(self.height):
             start += self.length
@@ -56,8 +56,11 @@ class CathodRayTube:
             for instruction in file:
                 self.execute(instruction)
         print(
-            f"{the_arrow}{white} Therefore, the sum of the {blue}signal strengths{white} is: {red}{self.signal_strength}{escape}[0m")
-        print(f"{the_arrow}{white} Therefore, the {blue}eight letters{white} which appeared on the screen are shown below:\n\n{self}")
+            f"{the_arrow}{white} Therefore, the sum of the {blue}signal strengths{white} is: {red}{self.signal_strength}{escape}[0m"
+        )
+        print(
+            f"{the_arrow}{white} Therefore, the {blue}eight letters{white} which appeared on the screen are shown below:\n\n{self}"
+        )
 
 
 cathode_ray_tube = CathodRayTube(6, 40)

@@ -1,9 +1,9 @@
 import re
-from typing import DefaultDict
 from collections import defaultdict
+from typing import DefaultDict
 
 import file_formats
-from file_formats import the_arrow, white, blue, red, escape
+from file_formats import blue, escape, red, the_arrow, white
 
 cratemover_9000: DefaultDict = defaultdict(list)
 
@@ -14,16 +14,16 @@ for line in open("2022\\crates.txt"):
                 cratemover_9000[(char - 1) // 4].append(line[char])
     elif line.startswith("move"):
         alpha, beta, gamma = map(int, re.findall(r"\d+", line))
-        cratemover_9000[gamma - 1] = cratemover_9000[beta - \
-            1][:alpha][::-1] + cratemover_9000[gamma - 1]
+        cratemover_9000[gamma - 1] = (
+            cratemover_9000[beta - 1][:alpha][::-1] + cratemover_9000[gamma - 1]
+        )
         cratemover_9000[beta - 1] = cratemover_9000[beta - 1][alpha:]
 
 print(
-    f"{the_arrow}{white} Therefore after rearranging using the {blue}Cratemover 9000{white} the order of crates which are at the top are: {red}" +
-    "".join(
-        cratemover_9000[i][0] for i in range(
-            len(cratemover_9000))) +
-    f"{escape}[0m")
+    f"{the_arrow}{white} Therefore after rearranging using the {blue}Cratemover 9000{white} the order of crates which are at the top are: {red}"
+    + "".join(cratemover_9000[i][0] for i in range(len(cratemover_9000)))
+    + f"{escape}[0m"
+)
 
 
 cratemover_9001: DefaultDict = defaultdict(list)
@@ -35,13 +35,13 @@ for line in open("2022\\crates.txt"):
                 cratemover_9001[(i - 1) // 4].append(line[i])
     elif line.startswith("move"):
         delta, epsilon, zeta = map(int, re.findall(r"\d+", line))
-        cratemover_9001[zeta - 1] = cratemover_9001[epsilon - \
-            1][:delta] + cratemover_9001[zeta - 1]
+        cratemover_9001[zeta - 1] = (
+            cratemover_9001[epsilon - 1][:delta] + cratemover_9001[zeta - 1]
+        )
         cratemover_9001[epsilon - 1] = cratemover_9001[epsilon - 1][delta:]
 
 print(
-    f"{the_arrow}{white} Therefore after rearranging using the {blue}Cratemover 9001{white} the order of crates which are at the top are: {red}" +
-    "".join(
-        cratemover_9001[i][0] for i in range(
-            len(cratemover_9001))) +
-    f"{escape}[0m")
+    f"{the_arrow}{white} Therefore after rearranging using the {blue}Cratemover 9001{white} the order of crates which are at the top are: {red}"
+    + "".join(cratemover_9001[i][0] for i in range(len(cratemover_9001)))
+    + f"{escape}[0m"
+)

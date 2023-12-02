@@ -1,8 +1,8 @@
-from typing import List, DefaultDict
 from collections import defaultdict
+from typing import DefaultDict, List
 
 import file_formats
-from file_formats import the_arrow, escape, white, blue, red
+from file_formats import blue, escape, red, the_arrow, white
 
 with open("2022\\directory.txt") as file:
     lines: List = [commands for commands in file.read().split("\n")]
@@ -44,6 +44,8 @@ for key, value in directory.items():
         smallest_dir = min(smallest_dir, value)
 
 print(
-    f"{the_arrow}{white} The amount of used space {blue}before freeing up{white} the disk was: {red}{used_space}{escape}[0m")
+    f"{the_arrow}{white} The amount of used space {blue}before freeing up{white} the disk was: {red}{used_space}{escape}[0m"
+)
 print(
-    f"{the_arrow}{white} The amount of space occupied by the {blue}smallest directory{white} was: {red}{smallest_dir}{escape}[0m")
+    f"{the_arrow}{white} The amount of space occupied by the {blue}smallest directory{white} was: {red}{smallest_dir}{escape}[0m"
+)
